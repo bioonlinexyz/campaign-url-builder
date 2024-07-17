@@ -1,59 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar UTM</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Criador de UTM</title>
 </head>
 <body>
-    <script>
-        const createUtmButton = document.querySelector('#create_utm');
-        const clearFieldsButton = document.querySelector('#clear_fields');
-        const testUrlButton = document.querySelector('#test_url');
-      
-        function createUtm() {
-          const urlPage = document.querySelector('#url').value;
-          const utmSource = document.querySelector('#utm_source').value;
-          const utmMedium = document.querySelector('#utm_medium').value;
-          const utmCampaign = document.querySelector('#utm_campaign').value;
-          const utmTerm = document.querySelector('#utm_term').value;
-          const utmContent = document.querySelector('#utm_content').value;
-      
-          const utmCreated = `${urlPage}?utm_source=${utmSource}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}&utm_term=${utmTerm}&utm_content=${utmContent}`;
-      
-          utm_result.innerText = utmCreated;
-        }
-      
-        create_utm.addEventListener('click', createUtm);
-      
-        function clearFields() {
-          document.querySelector('#url').value = "";
-          document.querySelector('#utm_source').value = "";
-          document.querySelector('#utm_medium').value = "";
-          document.querySelector('#utm_campaign').value = "";
-          document.querySelector('#utm_term').value = "";
-          document.querySelector('#utm_content').value = "";
-          utm_result.innerText = "";
-        }
-      
-        clear_fields.addEventListener('click', clearFields);
-      
-        function copyUtm() {
-          const resultUtm = document.querySelector('#utm_result');
-          resultUtm.select();
-          document.execCommand('copy');
-        }
-      
-        copy_utm.addEventListener('click', copyUtm);
-      
-        function testUrl() {
-          const utmCreated = document.querySelector('#utm_result').value;
-          if (utmCreated) {
-            window.open(utmCreated, '_blank');
-          }
-        }
-      
-        test_url.addEventListener('click', testUrl);
-      </script>
+    <div id="container">
+
+        <div class="fields">
+            <label for="url">URL</label><br>
+            <input type="url" id="url" class="fields_utm" required>
+            <p>O URL completo do site | exemplo: https://www.bioonline.xyz</p>
+        </div>
+        
+        <div class="fields">
+            <label for="utm_source">Origem</label><br>
+            <input type="text" id="utm_source" class="fields_utm"  required>
+            <p>A referência, isto é, de onde veio o clique | exemplo: google</p>
+        </div>
+        
+        <div class="fields">
+            <label for="utm_medium">Mídia</label><br>
+            <input type="text" id="utm_medium" class="fields_utm"required>
+            <p>Disposição na origem| exemplos: cpc, cpm, email</p>
+        </div>
+        
+        <div class="fields">
+            <label for="utm_campaign">Nome</label><br>
+            <input type="text" id="utm_campaign" class="fields_utm"required>
+            <p>Produto, código promocional, campanha ou slogan | exemplo: vestido</p>
+        </div>
+        
+        <div class="fields">
+            <label for="utm_term">Palavra-chave</label><br>
+            <input type="text" id="utm_term" class="fields_utm">
+            <p>Termo | exemplo: vestido, tenis, shorts</p>
+        </div>
+        
+        <div class="fields">
+            <label for="utm_content">Conteúdo</label><br>
+            <input type="text" id="utm_content" class="fields_utm">
+            <p>Diferencie links | exemplos: azul, vermelho (útul para teste A/B)</p>
+        </div>
+
+        <div class="fields" id="buttons">
+            <button id="clear_fields">Limpar Campos</button>
+            <button id="create_utm">Criar UTM</button>
+        </div>
+        
+        <div id="result_place">
+            <h3>Aqui está a URL com UTM</h3>
+           <textarea name="" id="utm_result" cols="30" rows="10">Vou aparecer aqui e você poderá me copiar no botão abaixo 😀</textarea><br>
+            <button id="copy_utm">Copiar UTM</button>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+
 </body>
 </html>
