@@ -8,6 +8,10 @@
 
 }
 
+.fields{
+    margim-bottom: 32px;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     display: flex;
