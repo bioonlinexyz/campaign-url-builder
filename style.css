@@ -34,7 +34,10 @@ body{
     border: solid 1px #d7d7d7;
     border-radius: 10px;
     padding: 12px;
+    margim-top: 24px;
 }
+
+
 
 .fields_utm,textarea:focus{
     outline: none;
